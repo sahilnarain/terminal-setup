@@ -24,9 +24,9 @@ echo 'endfun' >> ~/.vimrc
 echo 'autocmd BufWritePost *.js,*.json call JSBeautify()' >> ~/.vimrc
 sed -i '' "s/\"indent_size\":\ 4,/\"indent_size\":\ 2,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
 sed -i '' "s/\"jslint_happy\":\ false,/\"jslint_happy\":\ true,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
-git clone https://github.com/Townk/vim-autoclose.git
-mv ~/vim-autoclose/plugin/AutoClose.vim ~/.vim/plugin/
-rm -rf ~/vim-autoclose/
+git clone https://github.com/jiangmiao/auto-pairs.git
+mv auto-pairs/plugin/auto-pairs.vim ~/.vim/plugin/
+rm -rf ~/auto-pairs
 git clone https://github.com/crusoexia/vim-monokai.git
 mv vim-monokai/colors/monokai.vim ~/.vim/colors/
 rm -rf ~/vim-monokai/
@@ -34,6 +34,5 @@ git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javas
 git clone https://github.com/crusoexia/vim-javascript-lib.git
 mv ~/vim-javascript-lib/after/syntax/javascript.vim ~/.vim/syntax/
 rm -rf ~/vim-javascript-lib/
-#echo 'set regexpengine=1' >> ~/.vimrc
 echo 'colorscheme monokai' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab

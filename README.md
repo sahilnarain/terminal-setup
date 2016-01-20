@@ -7,6 +7,6 @@ The setup script will get updated as and when I discover more awesome stuff to u
 A shout out and special thanks to the following github users -
 * tpope
 * beautify-web
-* Townk
+* jiangmiao
 * crusoexia
 * pangloss
