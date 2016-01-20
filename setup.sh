@@ -22,8 +22,9 @@ echo '  bufdo e!' >> ~/.vimrc
 echo '  set confirm' >> ~/.vimrc
 echo 'endfun' >> ~/.vimrc
 echo 'autocmd BufWritePost *.js,*.json call JSBeautify()' >> ~/.vimrc
-sed -i '' "s/\"indent_size\":\ 4,/\"indent_size\":\ 2,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
-sed -i '' "s/\"jslint_happy\":\ false,/\"jslint_happy\":\ true,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
+sed -i.bak "s/\"indent_size\":\ 4,/\"indent_size\":\ 2,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
+sed -i.bak "s/\"jslint_happy\":\ false,/\"jslint_happy\":\ true,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
+rm -f ~/.vim/bundle/js-beautify/js/config/defaults.json.bak
 git clone https://github.com/jiangmiao/auto-pairs.git
 mv auto-pairs/plugin/auto-pairs.vim ~/.vim/plugin/
 rm -rf ~/auto-pairs
