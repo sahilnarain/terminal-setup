@@ -36,3 +36,4 @@ mv ~/vim-javascript-lib/after/syntax/javascript.vim ~/.vim/syntax/
 rm -rf ~/vim-javascript-lib/
 #echo 'set regexpengine=1' >> ~/.vimrc
 echo 'colorscheme monokai' >> ~/.vimrc
+git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
