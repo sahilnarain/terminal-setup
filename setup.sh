@@ -16,7 +16,7 @@ cd ~/.vim/bundle/js-beautify/
 npm install
 cd ~
 echo 'set ignorecase' >> ~/.vimrc
-echo 'let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"'
+echo 'let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"' >> ~/.vimrc
 echo 'fun! JSBeautify()' >> ~/.vimrc
 echo '  set noconfirm' >> ~/.vimrc
 echo '  :silent !'~/.vim/bundle/js-beautify/js/bin/js-beautify.js' -q -r '%'' >> ~/.vimrc
