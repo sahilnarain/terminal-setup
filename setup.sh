@@ -15,6 +15,8 @@ git clone https://github.com/beautify-web/js-beautify.git ~/.vim/bundle/js-beaut
 cd ~/.vim/bundle/js-beautify/
 npm install
 cd ~
+echo 'echo set ignorecase' >> ~/.vimrc
+echo 'let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"'
 echo 'fun! JSBeautify()' >> ~/.vimrc
 echo '  set noconfirm' >> ~/.vimrc
 echo '  :silent !'~/.vim/bundle/js-beautify/js/bin/js-beautify.js' -q -r '%'' >> ~/.vimrc
