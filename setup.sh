@@ -39,4 +39,4 @@ mv ~/vim-javascript-lib/after/syntax/javascript.vim ~/.vim/syntax/
 rm -rf ~/vim-javascript-lib/
 echo 'colorscheme monokai' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
-echo 'set mouse = a' >> ~/.vimrc
+echo 'set mouse=a' >> ~/.vimrc
