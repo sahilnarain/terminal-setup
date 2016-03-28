@@ -37,6 +37,8 @@ git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javas
 git clone https://github.com/crusoexia/vim-javascript-lib.git
 mv ~/vim-javascript-lib/after/syntax/javascript.vim ~/.vim/syntax/
 rm -rf ~/vim-javascript-lib/
+git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
+git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 echo 'colorscheme monokai' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 echo 'set mouse=a' >> ~/.vimrc
