@@ -43,6 +43,7 @@ rm -rf ~/vim-javascript-lib/
 git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 # echo 'colorscheme monokai' >> ~/.vimrc
+echo 'set background=dark' >> ~/.vimrc
 echo 'colorscheme hybrid_material' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 echo 'set mouse=a' >> ~/.vimrc
