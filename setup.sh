@@ -47,7 +47,3 @@ echo 'set background=dark' >> ~/.vimrc
 echo 'colorscheme hybrid_material' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 echo 'set mouse=a' >> ~/.vimrc
-#Temporary fix
-cd ~/.vim/bundle/vim-javascript/
-git checkout 842b0ceaa87936c1eb449617e7045ad33b81854e
-cd ~
