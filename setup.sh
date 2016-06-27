@@ -10,6 +10,7 @@ echo 'set smartindent' >> ~/.vimrc
 echo 'set expandtab' >> ~/.vimrc
 echo 'set tabstop=2' >> ~/.vimrc
 echo 'set shiftwidth=2' >> ~/.vimrc
+echo 'set laststatus=2' >> ~/.vimrc
 echo 'set t_Co=256' >> ~/.vimrc
 git clone https://github.com/beautify-web/js-beautify.git ~/.vim/bundle/js-beautify
 cd ~/.vim/bundle/js-beautify/
