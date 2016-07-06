@@ -39,18 +39,11 @@ rm -f ~/.vim/bundle/js-beautify/js/config/defaults.json.bak
 git clone https://github.com/jiangmiao/auto-pairs.git
 mv auto-pairs/plugin/auto-pairs.vim ~/.vim/plugin/
 rm -rf ~/auto-pairs
-# git clone https://github.com/crusoexia/vim-monokai.git
-# mv vim-monokai/colors/monokai.vim ~/.vim/colors/
-# rm -rf ~/vim-monokai/
-git clone https://github.com/kristijanhusak/vim-hybrid-material
-mv ~/vim-hybrid-material/colors/hybrid_material.vim ~/.vim/colors/
-rm -rf ~/vim-hybrid-material/
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 git clone https://github.com/crusoexia/vim-javascript-lib.git
 mv ~/vim-javascript-lib/after/syntax/javascript.vim ~/.vim/syntax/
 rm -rf ~/vim-javascript-lib/
 git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
-# echo 'colorscheme monokai' >> ~/.vimrc
-echo 'colorscheme hybrid_material' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
+echo 'colorscheme wasabi256' >> ~/.vimrc
