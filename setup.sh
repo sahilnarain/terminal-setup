@@ -1,4 +1,5 @@
 #!/bin/sh
+curDir=`pwd`
 rm -rf ~/.vim*
 mkdir -p ~/.vim/autoload ~/.vim/bundle  ~/.vim/colors ~/.vim/plugin ~/.vim/syntax
 curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
@@ -46,4 +47,5 @@ rm -rf ~/vim-javascript-lib/
 git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
-echo 'colorscheme wasabi256' >> ~/.vimrc
+cp $curDir/colors/* ~/.vim/colors/
+echo 'colorscheme lizard256' >> ~/.vimrc
