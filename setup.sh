@@ -3,20 +3,28 @@ rm -rf ~/.vim*
 mkdir -p ~/.vim/autoload ~/.vim/bundle  ~/.vim/colors ~/.vim/plugin ~/.vim/syntax
 curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 echo 'execute pathogen#infect()' >> ~/.vimrc
-echo 'set number' >> ~/.vimrc
+
+#Set options
 echo 'syntax on' >> ~/.vimrc
 echo 'set autoindent' >> ~/.vimrc
-echo 'set smartindent' >> ~/.vimrc
+echo 'set background=dark' >> ~/.vimrc
+echo 'set cursorline' >> ~/.vimrc
 echo 'set expandtab' >> ~/.vimrc
-echo 'set tabstop=2' >> ~/.vimrc
-echo 'set shiftwidth=2' >> ~/.vimrc
+echo 'set ignorecase' >> ~/.vimrc
 echo 'set laststatus=2' >> ~/.vimrc
+echo 'set mouse=a' >> ~/.vimrc
+echo 'set number' >> ~/.vimrc
+echo 'set ruler' >> ~/.vimrc
+echo 'set shiftwidth=2' >> ~/.vimrc
+echo 'set smartcase' >> ~/.vimrc
+echo 'set smartindent' >> ~/.vimrc
+echo 'set tabstop=2' >> ~/.vimrc
 echo 'set t_Co=256' >> ~/.vimrc
+
 git clone https://github.com/beautify-web/js-beautify.git ~/.vim/bundle/js-beautify
 cd ~/.vim/bundle/js-beautify/
 npm install
 cd ~
-echo 'set ignorecase' >> ~/.vimrc
 echo 'let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"' >> ~/.vimrc
 echo 'fun! JSBeautify()' >> ~/.vimrc
 echo '  set noconfirm' >> ~/.vimrc
@@ -44,7 +52,5 @@ rm -rf ~/vim-javascript-lib/
 git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 # echo 'colorscheme monokai' >> ~/.vimrc
-echo 'set background=dark' >> ~/.vimrc
 echo 'colorscheme hybrid_material' >> ~/.vimrc
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
-echo 'set mouse=a' >> ~/.vimrc
