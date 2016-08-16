@@ -48,7 +48,7 @@ git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 cp $curDir/colors/* ~/.vim/colors/
-echo 'colorscheme wombat256' >> ~/.vimrc
+echo 'colorscheme janah' >> ~/.vimrc
 echo 'let mapleader = ","' >> ~/.vimrc
 echo ':nnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
 echo ':vnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
