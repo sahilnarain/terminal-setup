@@ -49,6 +49,9 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgut
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 cp $curDir/colors/* ~/.vim/colors/
 echo 'colorscheme janah' >> ~/.vimrc
+
 echo 'let mapleader = ","' >> ~/.vimrc
 echo ':nnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
 echo ':vnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
+echo ':nnoremap <leader>sj ^ddp' >> ~/.vimrc #Swap line below
+echo ':nnoremap <leader>sk ^ddkP' >> ~/.vimrc #Swap line above
