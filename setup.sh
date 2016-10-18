@@ -70,3 +70,6 @@ echo ':imap <right> <nop>' >> ~/.vimrc
 
 echo ':inoremap jj <Esc>' >> ~/.vimrc
 echo ':nnoremap ; :' >> ~/.vimrc
+
+echo ':nnoremap ff <C-f>' >> ~/.vimrc
+echo ':nnoremap bb <C-b>' >> ~/.vimrc
