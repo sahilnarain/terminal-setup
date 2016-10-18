@@ -11,9 +11,10 @@ echo 'set autoindent' >> ~/.vimrc
 echo 'set background=dark' >> ~/.vimrc
 echo 'set cursorline' >> ~/.vimrc
 echo 'set expandtab' >> ~/.vimrc
+echo 'set hlsearch' >> ~/.vimrc
 echo 'set ignorecase' >> ~/.vimrc
+echo 'set incsearch' >> ~/.vimrc
 echo 'set laststatus=2' >> ~/.vimrc
-echo 'set mouse=a' >> ~/.vimrc
 echo 'set number' >> ~/.vimrc
 echo 'set ruler' >> ~/.vimrc
 echo 'set shiftwidth=2' >> ~/.vimrc
@@ -55,3 +56,18 @@ echo ':nnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
 echo ':vnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
 echo ':nnoremap <leader>sj ^ddp' >> ~/.vimrc #Swap line below
 echo ':nnoremap <leader>sk ^ddkP' >> ~/.vimrc #Swap line above
+
+#Take it to the limit!
+echo ':map <up> <nop>' >> ~/.vimrc
+echo ':map <down> <nop>' >> ~/.vimrc
+echo ':map <left> <nop>' >> ~/.vimrc
+echo ':map <right> <nop>' >> ~/.vimrc
+
+echo ':imap <up> <nop>' >> ~/.vimrc
+echo ':imap <down> <nop>' >> ~/.vimrc
+echo ':imap <left> <nop>' >> ~/.vimrc
+echo ':imap <right> <nop>' >> ~/.vimrc
+
+echo ':inoremap <Esc> <nop>' >> ~/.vimrc
+echo ':inoremap jj <Esc>' >> ~/.vimrc
+echo ':nnoremap ;; :' >> ~/.vimrc
