@@ -68,6 +68,5 @@ echo ':imap <down> <nop>' >> ~/.vimrc
 echo ':imap <left> <nop>' >> ~/.vimrc
 echo ':imap <right> <nop>' >> ~/.vimrc
 
-echo ':inoremap <Esc> <nop>' >> ~/.vimrc
 echo ':inoremap jj <Esc>' >> ~/.vimrc
-echo ':nnoremap ;; :' >> ~/.vimrc
+echo ':nnoremap ; :' >> ~/.vimrc
