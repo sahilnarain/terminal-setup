@@ -6,6 +6,8 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/
 echo 'execute pathogen#infect()' >> ~/.vimrc
 
 #Set options
+echo 'filetype on' >> ~/.vimrc
+echo 'filetype indent on' >> ~/.vimrc
 echo 'syntax on' >> ~/.vimrc
 echo 'set autoindent' >> ~/.vimrc
 echo 'set background=dark' >> ~/.vimrc
@@ -70,6 +72,7 @@ echo ':imap <right> <nop>' >> ~/.vimrc
 
 echo ':inoremap jj <Esc>' >> ~/.vimrc
 echo ':nnoremap ; :' >> ~/.vimrc
+echo ':nnoremap ;q1 :q!' >> ~/.vimrc
 
 echo ':nnoremap <leader>f <C-f>' >> ~/.vimrc
 echo ':nnoremap <leader>b <C-b>' >> ~/.vimrc
