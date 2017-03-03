@@ -74,5 +74,9 @@ echo ':inoremap jj <Esc>' >> ~/.vimrc
 echo ':nnoremap ; :' >> ~/.vimrc
 echo ':nnoremap ;q1 :q!' >> ~/.vimrc
 
+echo ':nnoremap <leader>e :e<Space>' >> ~/.vimrc
+
+echo ':nnoremap <leader><leader> :colorscheme random<Enter>:colorscheme<Enter>' >> ~/.vimrc
+
 echo ':nnoremap <leader>f <C-f>' >> ~/.vimrc
 echo ':nnoremap <leader>b <C-b>' >> ~/.vimrc
