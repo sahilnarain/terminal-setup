@@ -50,6 +50,7 @@ rm -rf ~/vim-javascript-lib/
 git clone https://github.com/tomtom/tcomment_vim.git ~/.vim/bundle/tcomment
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
+git clone https://github.com/leafgarland/typescript-vim ~/.vim/bundle/typescript-vim
 cp $curDir/colors/* ~/.vim/colors/
 echo 'colorscheme distinguished' >> ~/.vimrc
 
