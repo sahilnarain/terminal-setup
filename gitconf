@@ -1,0 +1,20 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Sahil Narain
+	email = sahil.narain@gmail.com
+ 
+[alias]
+  gdiff = difftool
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset%s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  undo = reset --soft HEAD^
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  tool = icdiff
+[difftool]
+  prompt = false
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE

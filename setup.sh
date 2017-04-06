@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# VIM
 curDir=`pwd`
 rm -rf ~/.vim*
 mkdir -p ~/.vim/autoload ~/.vim/bundle  ~/.vim/colors ~/.vim/plugin ~/.vim/syntax
@@ -81,3 +83,12 @@ echo ':nnoremap <leader><leader> :colorscheme random<Enter>:colorscheme<Enter>' 
 
 echo ':nnoremap <leader>f <C-f>' >> ~/.vimrc
 echo ':nnoremap <leader>b <C-b>' >> ~/.vimrc
+
+# GIT
+rm -rf ~/.gitconfig
+rm /usr/local/bin/icdiff
+curl -o icdiff https://raw.githubusercontent.com/jeffkaufman/icdiff/release-1.8.1/icdiff
+chmod ugo+rx icdiff
+mv icdiff /usr/local/bin/
+cd $curDir
+cp gitconf ~/.gitconfig
