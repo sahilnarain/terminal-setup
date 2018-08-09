@@ -29,6 +29,7 @@ echo 'set t_Co=256' >> ~/.vimrc
 
 git clone https://github.com/beautify-web/js-beautify.git ~/.vim/bundle/js-beautify
 cd ~/.vim/bundle/js-beautify/
+git reset --hard cebf32b2e3474aa307b0d8651cbcf8f01e779752
 npm install
 cd ~
 echo 'let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"' >> ~/.vimrc
