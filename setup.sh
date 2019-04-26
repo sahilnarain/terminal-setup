@@ -55,7 +55,7 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgut
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 git clone https://github.com/leafgarland/typescript-vim ~/.vim/bundle/typescript-vim
 cp $curDir/colors/* ~/.vim/colors/
-echo 'colorscheme distinguished' >> ~/.vimrc
+echo 'colorscheme candyman' >> ~/.vimrc
 
 echo 'let mapleader = ","' >> ~/.vimrc
 echo ':nnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
