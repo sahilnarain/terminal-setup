@@ -39,7 +39,8 @@ echo '  :silent !'~/.vim/bundle/js-beautify/js/bin/js-beautify.js' -q -r '%'' >>
 echo '  bufdo e!' >> ~/.vimrc
 echo '  set confirm' >> ~/.vimrc
 echo 'endfun' >> ~/.vimrc
-echo 'autocmd BufWritePost *.js,*.json call JSBeautify()' >> ~/.vimrc
+echo 'autocmd BufRead,BufNewFile *.ts setfiletype typescript' >> ~/.vimrc
+echo 'autocmd BufWritePost *.js,*.json,*.ts call JSBeautify()' >> ~/.vimrc
 sed -i.bak "s/\"indent_size\":\ 4,/\"indent_size\":\ 2,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
 sed -i.bak "s/\"jslint_happy\":\ false,/\"jslint_happy\":\ true,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
 rm -f ~/.vim/bundle/js-beautify/js/config/defaults.json.bak
