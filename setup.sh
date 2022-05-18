@@ -27,23 +27,25 @@ echo 'set smartindent' >> ~/.vimrc
 echo 'set tabstop=2' >> ~/.vimrc
 echo 'set t_Co=256' >> ~/.vimrc
 
-git clone https://github.com/beautify-web/js-beautify.git ~/.vim/bundle/js-beautify
-cd ~/.vim/bundle/js-beautify/
-git reset --hard cebf32b2e3474aa307b0d8651cbcf8f01e779752
+git clone https://github.com/prettier/vim-prettier ~/.vim/bundle/vim-prettier
+cd ~/.vim/bundle/vim-prettier/
 npm install
 cd ~
+
+echo 'let g:prettier#autoformat=0' >> ~/.vimrc
+echo 'let g:prettier#config#print_width=240' >> ~/.vimrc
+echo 'let g:prettier#config#trailing_comma="none"' >> ~/.vimrc
+echo 'let g:prettier#config#tab_width=2' >> ~/.vimrc
+echo 'let g:prettier#config#bracket_spacing="false"' >> ~/.vimrc
+echo 'let g:prettier#config#use_tabs="false"' >> ~/.vimrc
+echo 'let g:prettier#config#semi="true"' >> ~/.vimrc
+echo 'let g:prettier#config#single_quote="true"' >> ~/.vimrc
+echo 'let g:prettier#config#allow_parens="always"' >> ~/.vimrc
+echo 'let g:prettier#config#end_of_line="lf"' >> ~/.vimrc
+echo 'autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier' >> ~/.vimrc
+
 echo 'let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"' >> ~/.vimrc
-echo 'fun! JSBeautify()' >> ~/.vimrc
-echo '  set noconfirm' >> ~/.vimrc
-echo '  :silent !'~/.vim/bundle/js-beautify/js/bin/js-beautify.js' -q -r '%'' >> ~/.vimrc
-echo '  bufdo e!' >> ~/.vimrc
-echo '  set confirm' >> ~/.vimrc
-echo 'endfun' >> ~/.vimrc
 echo 'autocmd BufRead,BufNewFile *.ts setfiletype typescript' >> ~/.vimrc
-echo 'autocmd BufWritePost *.js,*.json,*.ts call JSBeautify()' >> ~/.vimrc
-sed -i.bak "s/\"indent_size\":\ 4,/\"indent_size\":\ 2,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
-sed -i.bak "s/\"jslint_happy\":\ false,/\"jslint_happy\":\ true,/g" ~/.vim/bundle/js-beautify/js/config/defaults.json
-rm -f ~/.vim/bundle/js-beautify/js/config/defaults.json.bak
 git clone https://github.com/jiangmiao/auto-pairs.git
 mv auto-pairs/plugin/auto-pairs.vim ~/.vim/plugin/
 rm -rf ~/auto-pairs
@@ -56,7 +58,7 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgut
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
 git clone https://github.com/leafgarland/typescript-vim ~/.vim/bundle/typescript-vim
 cp $curDir/colors/* ~/.vim/colors/
-echo 'colorscheme lighthaus' >> ~/.vimrc
+echo 'colorscheme candyman' >> ~/.vimrc
 
 echo 'let mapleader = ","' >> ~/.vimrc
 echo ':nnoremap <leader>/ :TComment<Enter>' >> ~/.vimrc
