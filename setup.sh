@@ -32,6 +32,9 @@ cd ~/.vim/bundle/vim-prettier/
 npm install
 cd ~
 
+git clone https://github.com/dense-analysis/ale ~/.vim/bundle/ale
+cd ~
+
 echo 'let g:prettier#autoformat=0' >> ~/.vimrc
 echo 'let g:prettier#config#print_width=240' >> ~/.vimrc
 echo 'let g:prettier#config#trailing_comma="none"' >> ~/.vimrc
