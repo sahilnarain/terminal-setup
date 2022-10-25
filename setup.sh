@@ -2,7 +2,11 @@
 
 # VIM
 curDir=`pwd`
-rm -rf ~/.vim*
+backupDir=vim-`date +%Y%m%d_%H%M%S`
+cd ~
+mkdir $backupDir
+mv ~/.vim* $backupDir/
+mv $backupDir ".bkp-$backupDir"
 mkdir -p ~/.vim/autoload ~/.vim/bundle  ~/.vim/colors ~/.vim/plugin ~/.vim/syntax
 curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 echo 'execute pathogen#infect()' >> ~/.vimrc
