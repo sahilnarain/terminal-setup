@@ -1,0 +1,53 @@
+execute pathogen#infect()
+filetype on
+filetype indent on
+syntax on
+set autoindent
+set background=dark
+set cursorline
+set expandtab
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set number
+set ruler
+set shiftwidth=2
+set smartcase
+set smartindent
+set tabstop=2
+set t_Co=256
+let g:prettier#autoformat=0
+let g:prettier#config#print_width=240
+let g:prettier#config#trailing_comma="none"
+let g:prettier#config#tab_width=2
+let g:prettier#config#bracket_spacing="false"
+let g:prettier#config#use_tabs="false"
+let g:prettier#config#semi="true"
+let g:prettier#config#single_quote="true"
+let g:prettier#config#allow_parens="always"
+let g:prettier#config#end_of_line="lf"
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+autocmd BufRead,BufNewFile *.ts setfiletype typescript
+colorscheme candyman
+let mapleader = ","
+:nnoremap <leader>/ :TComment<Enter>
+:vnoremap <leader>/ :TComment<Enter>
+:nnoremap <leader>sj ^ddp
+:nnoremap <leader>sk ^ddkP
+:map <up> <nop>
+:map <down> <nop>
+:map <left> <nop>
+:map <right> <nop>
+:imap <up> <nop>
+:imap <down> <nop>
+:imap <left> <nop>
+:imap <right> <nop>
+:inoremap jj <Esc>
+:nnoremap ; :
+:nnoremap ;q1 :q!
+:nnoremap <leader>e :e<Space>
+:nnoremap <leader><leader> :colorscheme random<Enter>:colorscheme<Enter>
+:nnoremap <leader>f <C-f>
+:nnoremap <leader>b <C-b>
