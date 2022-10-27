@@ -36,9 +36,13 @@ export NVM_DIR="$HOME/.nvm"
 # if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
 #   else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
 
-sudo killall -9 ssh-agent 1>/dev/null 2>/dev/null
-eval `ssh-agent -s` 1>/dev/null 2>/dev/null
-ssh-add ~/.ssh/git-sat 1>/dev/null 2>/dev/null
+sshagent_count=`ps aux | grep 'ssh-agent' | grep -v 'grep' | wc -l`
+if [ $sshagent_count -eq 0  ]
+then
+  sudo killall -9 ssh-agent 1>/dev/null 2>/dev/null
+  eval `ssh-agent -s` 1>/dev/null 2>/dev/null
+  ssh-add ~/.ssh/git-sat 1>/dev/null 2>/dev/null
+fi
 
 alias dropbox="rclone --dropbox-chunk-size=128M --dropbox-batch-mode=async --dropbox-batch-size=512 --transfers=32 --checkers=32 --buffer-size=128M --tpslimit=13 -vvP"
 
