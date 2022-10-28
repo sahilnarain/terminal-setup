@@ -1,0 +1,8 @@
+ping -c 1 144.24.106.16 1>/dev/null 2>/dev/null
+if [ $? -eq 0 ]
+then
+  clear
+  ssh sat
+else
+  echo "Not connected to the internet, falling back to local terminal..."
+fi

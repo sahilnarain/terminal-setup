@@ -62,7 +62,8 @@ cp gitconf ~/.gitconfig
 cp $curDir/dotfiles/vimrc ~/.vimrc
 
 # bashrc
-cp $curDir/dotfiles/bashrc ~/.bashrc
+cp $curDir/dotfiles/bashrc-remote ~/.bashrc
+# cp $curDir/dotfiles/bashrc-local ~/.bashrc
 
 # tmux.conf
 cp $curDir/dotfiles/tmux.conf ~/.tmux.conf
