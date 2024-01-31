@@ -1,0 +1,15 @@
+# Default account
+# source ~/.mutt/gmail.conf
+source ~/.mutt/xane.conf
+
+# Email - Sort by latest first
+set sort = reverse-date-received
+
+#Editor
+set editor = set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
+
+# Colorscheme
+source ~/.mutt/mutt-colors-solarized-light-16.muttrc
+
+# Keybindings
+macro index <S-a> ":set confirmappend=no\n<save-message>=[Gmail]/All Mail<enter>:set confirmappend=yes\n<sync-mailbox><enter>"

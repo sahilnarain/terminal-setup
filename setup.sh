@@ -67,3 +67,7 @@ cp $curDir/dotfiles/bashrc-remote ~/.bashrc
 
 # tmux.conf
 cp $curDir/dotfiles/tmux.conf ~/.tmux.conf
+
+# mutt
+cp -r $curDir/dotfiles/mutt ~/.mutt
+cp $curDir/dotfiles/muttrc ~/.muttrc
