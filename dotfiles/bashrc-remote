@@ -1,5 +1,7 @@
 # .bashrc
 
+export EDITOR=vim
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -49,6 +51,8 @@ alias dropbox="rclone --dropbox-chunk-size=128M --dropbox-batch-mode=async --dro
 alias wg-on="wg-quick up"
 alias wg-off="wg-quick down"
 
+alias tmux="export ORIG_TERM=$TERM; tmux"
+
 # Remote servers only
 if [ -z $TMUX ]
 then
@@ -64,4 +68,9 @@ then
   else
     tmux attach -t default
   fi
+fi
+
+if [ "$ORIG_TERM" == "linux" ]
+then
+  alias vim="vim \"-c colorscheme darkblue\""
 fi
