@@ -16,7 +16,7 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/
 #Prettier
 git clone https://github.com/prettier/vim-prettier ~/.vim/bundle/vim-prettier
 cd ~/.vim/bundle/vim-prettier/
-npm install
+npm install --force # To avoid prettier version conflict
 cd ~
 
 # ALE
