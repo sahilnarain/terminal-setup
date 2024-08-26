@@ -16,7 +16,9 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/
 #Prettier
 git clone https://github.com/prettier/vim-prettier ~/.vim/bundle/vim-prettier
 cd ~/.vim/bundle/vim-prettier/
-npm install --force # To avoid prettier version conflict
+npm install --legacy-peer-deps
+rm -rf node_modules/prettier
+npm install prettier@^1.0.0
 cd ~
 
 # ALE
@@ -42,6 +44,9 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgut
 
 # Supertab
 git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
+cd ~/.vim/bundle/supertab
+git reset --hard ea67023f1994c11a89c7c0a81012772071389054
+cd ~
 
 # Vum TS
 git clone https://github.com/leafgarland/typescript-vim ~/.vim/bundle/typescript-vim
