@@ -49,7 +49,11 @@ fi
 alias dropbox="rclone --dropbox-chunk-size=128M --dropbox-batch-mode=async --dropbox-batch-size=512 --transfers=32 --checkers=32 --buffer-size=128M --tpslimit=13 -vvP"
 
 alias wg-on="wg-quick up"
-alias wg-off="wg-quick down"
+function wg-off() {
+  wg_active=`sudo wg show | head -n 1 | awk -F': ' '{print $2}'`
+  wg-quick down $wg_active
+  unset $wg_active
+}
 
 alias tmux="export ORIG_TERM=$TERM; tmux"
 
