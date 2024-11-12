@@ -124,12 +124,19 @@ fi
 
 function grab() {
   echo "Taking screenshot..."
-  filename=screenshot-`date +%Y%m%d_%H%M%S.png`
+  filename=screenshot-`date +%Y%m%d-%H%M%S`.png
   sudo fbgrab -c $1 ~/$filename
   user=sahil
   sudo chown $user ~/$filename
   echo $filename
 }
 
-alias fbi="sudo fbi -d /dev/fb0 -a"
-
+function show() {
+  if [[ `tty` == "/dev/tty"* ]]
+  then
+    tty_number=`tty | rev | cut -c 1`
+    sudo fbi -d /dev/fb0 -a -T $tty_number $1
+  else
+    sudo fbi -d /dev/fbo -a -T 1 $1
+  fi
+}
