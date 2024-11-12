@@ -84,3 +84,32 @@ if [ "$ORIG_TERM" == "linux" ]
 then
   alias vim="vim \"-c colorscheme darkblue\""
 fi
+
+function ipv6() { #Specific to Oracle Cloud infra
+wg_tunnel=`sudo wg show | head -n 1 | awk -F': ' '{print $2}'`
+if [[ $wg_tunnel ]]
+then
+  wg-quick down $wg_tunnel
+fi
+# echo 'Stopping Network Manager Dispatcher'
+sudo systemctl stop NetworkManager-dispatcher
+# echo 'Stopping Network Manager'
+sudo systemctl stop NetworkManager
+# echo 'Stopping Firewall'
+sudo systemctl stop firewalld
+# echo 'Done'
+
+# echo 'Starting Network Manager Dispatcher'
+sudo systemctl start NetworkManager-dispatcher
+# echo 'Starting Network Manager'
+sudo systemctl start NetworkManager
+# echo 'Starting Firewall'
+sudo systemctl start firewalld
+# echo 'Done'
+
+if [[ $wg_tunnel ]]
+then
+  wg-quick up $wg_tunnel
+fi
+echo "IPv6 reset done."
+}
