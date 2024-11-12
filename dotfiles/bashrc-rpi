@@ -137,6 +137,6 @@ function show() {
     tty_number=`tty | rev | cut -c 1`
     sudo fbi -d /dev/fb0 -a -T $tty_number $1
   else
-    sudo fbi -d /dev/fbo -a -T 1 $1
+    sudo fbi -d /dev/fb0 -a -T 1 $1
   fi
 }
