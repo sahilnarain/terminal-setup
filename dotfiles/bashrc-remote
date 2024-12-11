@@ -113,3 +113,5 @@ then
 fi
 echo "IPv6 reset done."
 }
+
+export MYSQL_PS1="MySQL [\d]> "
