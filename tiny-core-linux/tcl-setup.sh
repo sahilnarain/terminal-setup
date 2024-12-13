@@ -4,11 +4,11 @@ then
 fi
 
 echo "Setting up your session ..."
-sudo wifi.sh -a &> /dev/null
+sudo wifi.sh
 
 for i in $(seq 1 10)
 do
-  ping -c 1 google.com &> /dev/null
+  ping -c 1 1.1.1.1 &> /dev/null
   if [[ $? -eq 0 ]]
   then
     break 
@@ -22,11 +22,9 @@ tce-load -i /mnt/mmcblk0p2/tce/optional/FBTerm.tcz &> /dev/null
 
 sudo mkdir -p /usr/share/fonts/truetype/jetbrains-mono/
 sudo mv .SETUP/JetBrains*.ttf /usr/share/fonts/truetype/jetbrains-mono/
-# sudo cp .SETUP/JetBrains*.ttf /usr/share/fonts/truetype/jetbrains-mono/
 fc-cache -f
 
 rm -rf ~/.SETUP
 
 touch .ash-init-successful
 fbterm
-
