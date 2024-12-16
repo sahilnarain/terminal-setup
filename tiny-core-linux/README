@@ -1,0 +1,34 @@
+Notes
+- Do a clean install of piCore
+- Boot on Pi
+- Run `sudo fdisk -u /dev/mmcblk0`
+- List partitions by pressing p
+- Delete partition by pressing d, select partition number 2
+- Create new partition by pressing n, select primary by pressing P, parition number 2
+- Select start location the saem as the original list
+- Let end location remain default
+- Press w to write
+- Reboot
+- Resize disk by `sudo resize2fs /dev/mmcblkp2`
+
+- Copy wireless and other core packages to SD Card
+- `mount /dev/mmcblk0p1`
+- `cp /mnt/mmcblk0p1/<folder>/packages/*.tcz /mnt/mmcblk0p2/tce/optional/`
+- `tce-load -i /dev/mmcblk0p2/tce/optional/*.tcz`
+- `cd /dev/mmcblk0p2/tce/optional/`
+- `for file in *.tcz; do md5sum $file $file.md5.txt; done;`
+- Connect to the wifi `sudo wifi.sh`
+- `tce-audit updatedeps`
+- `for file in /mnt/mmcblk0p2/tce/optional/*.tcz; do if [ $file != 'FBTerm.tcz' ]; then tce-update $file; fi; done`
+- `mkdir ~/.ssh; cp /mnt/mmcblk0p1/<folder>/ssh/* ~/.ssh/; chmod 600 ~/.ssh/config; chmod 400 ~/.ssh/*.pem`
+- `cp /mnt/mmcblk0p1/<folder>/scripts/setup.sh ~/.setup.sh`
+- `cp /mnt/mmcblk0p1/<folder>/scripts/term-set.sh ~/.term-set.sh`
+- `echo "alias vim=vi" >> ~/.ashrc`  
+- `echo "if [ ! -f /home/\`whoami`/.ash-init-successful ]; then sudo wifi.sh; fi" >> ~/.ashrc`  
+- `echo ". ./.term-set.sh" >> ~/.ashrc`  
+- `echo "touch .ash-init-successful >> " >> ~/.ashrc`  
+- Check if fbterm is installed successfully with the correct dependencies. If yes, then run `cp /mnt/mmcblk0p1/<folder>/rootfs-piCore64-X-fbterm.gz /mnt/mmcblk0p1/rootfs-piCore64-X.gz` (where X is the version of piCore)
+- `echo y | backup`
+- `sudo reboot`
+
+This will configure the system for use with FBTerm.
