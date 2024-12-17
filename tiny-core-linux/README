@@ -27,8 +27,14 @@ Notes
 - `echo "if [ ! -f /home/\`whoami`/.ash-init-successful ]; then sudo wifi.sh; fi" >> ~/.ashrc`  
 - `echo ". ./.term-set.sh" >> ~/.ashrc`  
 - `echo "touch .ash-init-successful >> " >> ~/.ashrc`  
-- Check if fbterm is installed successfully with the correct dependencies. If yes, then run `cp /mnt/mmcblk0p1/<folder>/rootfs-piCore64-X-fbterm.gz /mnt/mmcblk0p1/rootfs-piCore64-X.gz` (where X is the version of piCore)
 - `echo y | backup`
+- Package fbterm into the root filesystem.
+- `mkdir /tmp/extract`
+- `cp /mnt/mmcblk0p1/rootfs-piCore-X.gz /tmp/extract/`
+- `cd /tmp/extract`
+- `zcat | sudo cpio -i -H newc -d`
+- Copy fonts into /tmp/extract/usr/share/fonts/truetype, copy fbterm config into /tmp/extract/root/.fbtermrc, edit /tmp/extract/etc/init
+- Zip it again by running `find | sudo cpio -o -H newc | gzip -2 > /tmp/rootfs-fbterm.gz` and `cp /tmp/rootfs-fbterm.gz /mnt/mmcblk0p1/rootfs-piCore-X.gz`
 - `sudo reboot`
 
 This will configure the system for use with FBTerm.
