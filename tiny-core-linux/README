@@ -38,3 +38,26 @@ Notes
 - `sudo reboot`
 
 This will configure the system for use with FBTerm.
+
+The following steps can be done to convert any Debian package to a TinyCore package.
+As a pre-step, FBTerm might also need to be converted to a TCZ format.
+This is done by fetching the archietcture-specific .deb package, extracting it, adding a TC Info file, and then repackaging as a tcz.
+
+- `sudo yum install dpkg squashfs-tools`
+- `wget http://ftp.debian.org/debian/pool/main/f/fbterm/fbterm_1.7-4+b1_arm64.deb`
+- `mkdir fbterm-deb`
+- `dpkg -x fbterm_1.7-4+b1_arm64.deb fbterm-deb`
+- `mkdir -p fbterm-tcz/usr/local/bin/`
+- `cp fbterm-deb/usr/bin/* fbterm-tcz/usr/local/bin/`
+- `echo 'NAME="FBTerm"
+VERSION=1.7.4
+DESCRIPTION="FBTerm v1.7.4 (arm64)"' > fbterm-tcz/fbterm.tcz.info`
+- `mksquashfs fbterm-tcz FBTerm.tcz -noappend`
+
+Further, once this is backed up, the disk image can be created and restored with dd
+- Eject the mounted drive and find out the device
+- `dd if=/dev/disk2 of=~/Desktop/image.img bs=1m conv=sync,noerror status=progress`
+- `gzip ~/Desktop/image.img`
+For restoring, reverse these steps
+- `gunzip ~/Desktop/image.img.gz`
+- `dd if=~/Desktop/image.img of=/dev/disk2 bs=1m conv=sync,noerror status=progress`
