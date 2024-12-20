@@ -61,3 +61,7 @@ Further, once this is backed up, the disk image can be created and restored with
 For restoring, reverse these steps
 - `gunzip ~/Desktop/image.img.gz`
 - `dd if=~/Desktop/image.img of=/dev/disk2 bs=1m conv=sync,noerror status=progress`
+
+Also, there are some enhancements to the general user flow that can be done.
+1. Uncomment #disable_overscan=1 in /mnt/mmcblk0p1/config.txt to remove the black border around the screen.
+2. Enable multiple TTYs as needed by editing /etc/inittab and repackaging.
