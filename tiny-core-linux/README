@@ -14,8 +14,8 @@ Notes
 - Copy wireless and other core packages to SD Card
 - `mount /dev/mmcblk0p1`
 - `cp /mnt/mmcblk0p1/<folder>/packages/*.tcz /mnt/mmcblk0p2/tce/optional/`
-- `tce-load -i /dev/mmcblk0p2/tce/optional/*.tcz`
-- `cd /dev/mmcblk0p2/tce/optional/`
+- `tce-load -i /mnt/mmcblk0p2/tce/optional/*.tcz`
+- `cd /mnt/mmcblk0p2/tce/optional/`
 - `for file in *.tcz; do md5sum $file $file.md5.txt; done;`
 - Connect to the wifi `sudo wifi.sh`
 - `tce-audit updatedeps`
