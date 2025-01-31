@@ -13,3 +13,6 @@ source ~/.mutt/mutt-colors-solarized-light-16.muttrc
 
 # Keybindings
 macro index <S-a> ":set confirmappend=no\n<save-message>=[Gmail]/All Mail<enter>:set confirmappend=yes\n<sync-mailbox><enter>"
+
+# Quote Character
+bind editor '> ' quote-char
