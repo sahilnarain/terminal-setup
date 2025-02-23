@@ -6,3 +6,51 @@ then
 else
   echo "Not connected to the internet, falling back to local terminal..."
 fi
+
+alias nikonsync='dropbox copy "$folder" dropbox:"Nikon D7500/$folder"'
+alias nikonsyncm='dropbox move "$folder" dropbox:"Nikon D7500/$folder"'
+alias writetime='echo `date +"%Y-%m-%d %H:%M:%S"` > time.txt'
+
+function fastimg() {
+  if [[ -z "$1"  ]]
+  then
+    return
+  fi
+
+  filename="$1"
+  ext="${filename##*.}"
+  fn=$(echo "$1" | sed "s/\.$ext$//");
+
+  IMG_DIR="./IMAGES"
+  if [ ! -d $IMG_DIR  ]
+  then
+    mkdir $IMG_DIR
+  fi
+
+  ffmpeg -i "$1" -r 1 "$IMG_DIR"/"$fn"_%04d.jpg
+}
+
+function fastconv() {
+  if [[ -z "$1"  ]]
+  then
+    return
+  fi
+
+  filename="$1"
+  ext="${filename##*.}"
+  fn=$(echo "$1" | sed "s/\.$ext$//");
+
+  CONV_DIR="./CONV"
+  if [ ! -d $CONV_DIR  ]
+  then
+    mkdir $CONV_DIR
+  fi
+
+  if [[ -z "$2" || -z "$3"  ]]
+  then
+    ffmpeg -i "$1" -vf scale=720:406 -c:v libx264 -c:a copy -crf 30 -preset ultrafast -pix_fmt yuv420p "$CONV_DIR"/"$fn".mp4
+  else
+    let diff="$3"-"$2"
+    ffmpeg -i "$1" -vf scale=720:406 -c:v libx264 -c:a copy -ss "$2" -t "$diff" -crf 30 -preset ultrafast -pix_fmt yuv420p "$CONV_DIR"/"$fn".mp4
+  fi
+}
