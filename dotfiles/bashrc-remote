@@ -115,3 +115,21 @@ echo "IPv6 reset done."
 }
 
 export MYSQL_PS1="MySQL [\d]> "
+function query() {
+  if [[ -z $1 ]]
+  then
+    echo "No connection specified, quitting."
+    return
+  fi
+
+  if [[ -z $2 ]]
+  then
+    echo "No query specified, quitting."
+    return
+  fi
+
+  q=`cat $1`
+  q=`echo $q -e \"$2\"`
+
+  eval $q
+}
