@@ -32,7 +32,7 @@ Notes
 - `mkdir /tmp/extract`
 - `cp /mnt/mmcblk0p1/rootfs-piCore-X.gz /tmp/extract/`
 - `cd /tmp/extract`
-- `zcat | sudo cpio -i -H newc -d`
+- `zcat rootfs-piCore-14.1.gz | sudo cpio -i -H newc -d`
 - Copy fonts into /tmp/extract/usr/share/fonts/truetype, copy fbterm config into /tmp/extract/root/.fbtermrc, edit /tmp/extract/etc/init
 - Zip it again by running `find | sudo cpio -o -H newc | gzip -2 > /tmp/rootfs-fbterm.gz` and `cp /tmp/rootfs-fbterm.gz /mnt/mmcblk0p1/rootfs-piCore-X.gz`
 - `sudo reboot`
