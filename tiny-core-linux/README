@@ -12,6 +12,7 @@ Notes
 - Resize disk by `sudo resize2fs /dev/mmcblkp2`
 
 - Copy wireless and other core packages to SD Card
+- The core packages are - firmware-rpi-wifi.tcz, fontconfig.tcz, freetype.tcz, libpng.tcz, ncurses.tcz, wifi.tcz, wireless-6.1.68-piCore-v8.tcz, wireless_tools.tcz, wpa_supplicant.tcz
 - `mount /dev/mmcblk0p1`
 - `cp /mnt/mmcblk0p1/<folder>/packages/*.tcz /mnt/mmcblk0p2/tce/optional/`
 - `tce-load -i /mnt/mmcblk0p2/tce/optional/*.tcz`
