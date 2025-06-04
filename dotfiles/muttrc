@@ -6,7 +6,7 @@ source ~/.mutt/xane.conf
 set sort = reverse-date-received
 
 #Editor
-set editor = set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
+set editor = "vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 
 # Colorscheme
 source ~/.mutt/mutt-colors-solarized-light-16.muttrc
@@ -15,4 +15,23 @@ source ~/.mutt/mutt-colors-solarized-light-16.muttrc
 macro index <S-a> ":set confirmappend=no\n<save-message>=[Gmail]/All Mail<enter>:set confirmappend=yes\n<sync-mailbox><enter>"
 
 # Quote Character
+set indent_str = '> '
 bind editor '> ' quote-char
+
+# Sidebar configuration
+set sidebar_visible
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set sidebar_new_mail_only
+sidebar_whitelist "+INBOX" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/All Mail" "+[Gmail]/Spam" "+[Gmail]/Trash"
+
+bind index,pager \CP sidebar-prev       # Ctrl-Shift-P - Previous Mailbox
+bind index,pager \CN sidebar-next       # Ctrl-Shift-N - Next Mailbox
+bind index,pager \CO sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbox
+
+color sidebar_indicator white yellow            # FG BG Dark blue background
+color sidebar_highlight white   color238        # Grey background
+color sidebar_spoolfile yellow  default         # Yellow
+color sidebar_new       green   default         # Green
+color sidebar_flagged   red     default         # Red
+color sidebar_divider   color8  default         # Dark grey
