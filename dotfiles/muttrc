@@ -1,5 +1,5 @@
 # Default account
-# source ~/.mutt/gmail.conf
+source ~/.mutt/gmail.conf
 source ~/.mutt/xane.conf
 
 # Email - Sort by latest first
@@ -35,3 +35,10 @@ color sidebar_spoolfile yellow  default         # Yellow
 color sidebar_new       cyan   default         # Green
 color sidebar_flagged   red     default         # Red
 color sidebar_divider   color8  default         # Dark grey
+
+# Archive Shortcut
+macro index aa "<save-message>=[Gmail]/All%20Mail<enter><enter><sync-mailbox><enter>" "Archive message to [Gmail]/All Mail"
+
+# Switch accounts
+macro index sg "<sync-mailbox><enter-command>source ~/.mutt/gmail.conf<enter><change-folder>!<enter>" "Switched to Gmail"
+macro index sx "<sync-mailbox><enter-command>source ~/.mutt/xane.conf<enter><change-folder>!<enter>" "Switched to Xane"
