@@ -30,7 +30,7 @@ bind index,pager \CN sidebar-next       # Ctrl-Shift-N - Next Mailbox
 bind index,pager \CO sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbox
 
 # Archive Shortcut
-macro index xx "<save-message>=[Gmail]/All%20Mail<enter><enter><sync-mailbox><enter>" "Archive message to [Gmail]/All Mail"
+macro index aa "<save-message>=[Gmail]/All%20Mail<enter><enter><sync-mailbox><enter>" "Archive message to [Gmail]/All Mail"
 
 # Switch accounts
 macro index sg "<sync-mailbox><enter-command>source ~/.mutt/gmail.conf<enter><change-folder>!<enter>" "Switched to Gmail"
