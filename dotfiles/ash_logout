@@ -1,0 +1,4 @@
+if [[ -f /home/`whoami`/.ash_history ]]
+then
+  rm -f /home/`whoami`/.ash_history
+fi

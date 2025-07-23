@@ -1,0 +1,51 @@
+# ~/.ashrc: Executed by SHells.
+#
+. /etc/init.d/tc-functions
+if [ -n "$DISPLAY" ]
+then
+	`which editor >/dev/null` && EDITOR=editor || EDITOR=vi
+else
+	EDITOR=vi
+fi
+export EDITOR
+
+# Alias definitions.
+#
+alias df='df -h'
+alias du='du -h'
+
+alias ls='ls -p'
+alias ll='ls -l'
+alias la='ls -la'
+
+# Avoid errors... use -f to skip confirmation.
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias d='dmenu_run &'
+alias ce='cd /etc/sysconfig/tcedir'
+
+alias vim=vi
+
+if [[ $TERM == 'linux' ]]
+then
+  tty | grep -q '/dev/pts/'
+  if [[ $? -eq 0 ]]
+  then
+    fbterm_pids=pgrep fbterm | head -n 1
+    if [[ $? -eq 0 ]]
+    then
+      export TERM=fbterm
+    fi
+  else
+    loadfont < /usr/share/fonts/psf/terminus/terminus-powerline-v12n.psf
+  fi
+fi
+
+if [[ ! -f .ash-init-success ]]
+then
+  tce-load -i /mnt/mmcblk0p2/tce/optional/*.tcz > /dev/null
+  sudo wifi.sh
+  touch .ash-init-success
+fi
