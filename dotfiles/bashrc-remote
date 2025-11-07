@@ -82,7 +82,7 @@ fi
 
 if [ "$ORIG_TERM" == "linux" ]
 then
-  alias vim="vim \"-c colorscheme darkblue\""
+  alias vim="vim \"-c colorscheme cobalt2\""
 fi
 
 function ipv6() { #Specific to Oracle Cloud infra
