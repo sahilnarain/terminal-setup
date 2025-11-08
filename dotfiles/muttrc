@@ -9,7 +9,7 @@ set sort = reverse-date-received
 set editor = "vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 
 # Colorscheme
-source ~/.mutt/colorschemes/dracula.muttrc
+source "~/.mutt/theme.sh|"
 
 # Keybindings
 macro index <S-a> ":set confirmappend=no\n<save-message>=[Gmail]/All Mail<enter>:set confirmappend=yes\n<sync-mailbox><enter>"

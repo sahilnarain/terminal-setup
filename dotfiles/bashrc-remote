@@ -61,8 +61,6 @@ function wg-off() {
   unset $wg_active
 }
 
-alias tmux="export ORIG_TERM=$TERM; tmux"
-
 # Remote servers only
 if [ -z $TMUX ]
 then
@@ -78,11 +76,6 @@ then
   else
     tmux attach -t default
   fi
-fi
-
-if [ "$ORIG_TERM" == "linux" ]
-then
-  alias vim="vim \"-c colorscheme cobalt2\""
 fi
 
 function ipv6() { #Specific to Oracle Cloud infra

@@ -1,0 +1,62 @@
+# Black	0	#000000
+# Red	1	#FF0000
+# Green	2	#00FF00
+# Yellow	3	#FFFF00
+# Blue	4	#0000FF
+# Magenta	5	#FF00FF
+# Cyan	6	#00FFFF
+# White	7	#FFFFFF
+# Bright Black (Gray)	8	#555555
+# Bright Red	9	#FF5555
+# Bright Green	10	#55FF55
+# Bright Yellow	11	#FFFF55
+# Bright Blue	12	#5555FF
+# Bright Magenta	13	#FF55FF
+# Bright Cyan	14	#55FFFF
+# Bright White #FFFFFF
+
+# STATUS BAR
+color status brightblue brightblack
+
+# NORMAL
+color normal white default
+
+# SELECTED
+color indicator brightblack default
+
+# SIDEAR MAILBOX NEW
+color sidebar_new brightwhite default
+
+# SIDEAR MAILBOX SELECTED
+color sidebar_highlight brightyellow default
+
+# NEW
+color index brightyellow default ~N
+
+# UNREAD
+color index brightwhite default ~O
+
+# FLAGGED
+color index brightgreen default ~F
+
+# TAGGED
+color index brightmagenta default ~T
+
+# DELETED
+color index brightred default ~D
+
+# ERROR
+color error red default
+
+# MESSAGE HEADER
+color header yellow default '.*'
+
+# BODY
+color message brightgreen default
+
+
+# PROMPT
+# QUOTED
+# SIGNATURE
+# SEARCH
+# TILDE
