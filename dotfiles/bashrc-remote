@@ -61,6 +61,25 @@ function wg-off() {
   unset $wg_active
 }
 
+function term() {
+  if [[ -z $TMUX ]]
+  then
+    if [[ $TERM == 'fbterm' ]]
+    then
+      echo "xterm-256color" > /tmp/.tmux.term
+    else
+      echo $TERM > /tmp/.tmux.term
+    fi
+  elif [[ $TMUX ]]
+  then
+    if [[ -f /tmp/.tmux.term ]]
+    then
+      export TERM=`cat /tmp/.tmux.term`
+    fi
+  fi
+}
+term
+
 # Remote servers only
 if [ -z $TMUX ]
 then
