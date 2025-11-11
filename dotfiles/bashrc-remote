@@ -61,7 +61,7 @@ function wg-off() {
   unset $wg_active
 }
 
-function term() {
+function _term() {
   if [[ -z $TMUX ]]
   then
     if [[ $TERM == 'fbterm' ]]
@@ -78,7 +78,8 @@ function term() {
     fi
   fi
 }
-term
+_term
+alias vim="_term; vim"
 
 # Remote servers only
 if [ -z $TMUX ]
