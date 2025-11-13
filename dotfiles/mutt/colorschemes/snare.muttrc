@@ -19,10 +19,10 @@
 color status brightblue brightblack
 
 # NORMAL
-color normal brightblack default
+color normal white default
 
 # SELECTED
-color indicator brightwhite default
+color indicator brightblack default
 
 # SIDEAR MAILBOX NEW
 color sidebar_new brightwhite default
@@ -34,7 +34,7 @@ color sidebar_highlight brightyellow default
 color index brightyellow default ~N
 
 # UNREAD
-color index white default ~O
+color index brightwhite default ~O
 
 # FLAGGED
 color index brightgreen default ~F
