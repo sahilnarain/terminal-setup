@@ -35,3 +35,6 @@ macro index aa "<save-message>=[Gmail]/All%20Mail<enter><enter><sync-mailbox><en
 # Switch accounts
 macro index sg "<sync-mailbox><enter-command>source ~/.mutt/gmail.conf<enter><change-folder>!<enter>" "Switched to Gmail"
 macro index sx "<sync-mailbox><enter-command>source ~/.mutt/xane.conf<enter><change-folder>!<enter>" "Switched to Xane"
+
+set mime_forward=yes
+set forward_format="Fw: %s"
