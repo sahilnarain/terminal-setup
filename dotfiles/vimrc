@@ -16,7 +16,7 @@ set shiftwidth=2
 set smartcase
 set smartindent
 set tabstop=2
-set t_Co=256
+if $TERM ==# 'linux' | set t_Co=16 | else | set t_Co=256 | endif
 let g:prettier#autoformat=0
 let g:prettier#config#print_width=240
 let g:prettier#config#trailing_comma="none"
