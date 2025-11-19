@@ -17,6 +17,7 @@ set smartcase
 set smartindent
 set tabstop=2
 if $TERM ==# 'linux' | set t_Co=16 | else | set t_Co=256 | endif
+colorscheme candyman
 let g:prettier#autoformat=0
 let g:prettier#config#print_width=240
 let g:prettier#config#trailing_comma="none"
@@ -30,7 +31,6 @@ let g:prettier#config#end_of_line="lf"
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 autocmd BufRead,BufNewFile *.ts setfiletype typescript
-colorscheme candyman
 let mapleader = ","
 :nnoremap <leader>/ :TComment<Enter>
 :vnoremap <leader>/ :TComment<Enter>
@@ -51,3 +51,4 @@ let mapleader = ","
 :nnoremap <leader><leader> :colorscheme random<Enter>:colorscheme<Enter>
 :nnoremap <leader>f <C-f>
 :nnoremap <leader>b <C-b>
+set viminfo='50,<1000,s1000
