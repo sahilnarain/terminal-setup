@@ -29,7 +29,10 @@ fi
 unset rc
 
 export NODE_ENV=development
-cd ~/data
+if [[ -z $TMUX  ]]
+then
+  cd ~/data
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
