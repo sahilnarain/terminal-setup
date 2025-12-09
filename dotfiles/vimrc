@@ -34,6 +34,7 @@ autocmd BufRead,BufNewFile *.ts setfiletype typescript
 let mapleader = ","
 :nnoremap <leader>/ :TComment<Enter>
 :vnoremap <leader>/ :TComment<Enter>
+:nnoremap <leader>n :NERDTreeToggle<Enter>
 :nnoremap <leader>sj ^ddp
 :nnoremap <leader>sk ^ddkP
 :map <up> <nop>

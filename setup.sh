@@ -51,6 +51,9 @@ cd ~
 # Vum TS
 git clone https://github.com/leafgarland/typescript-vim ~/.vim/bundle/typescript-vim
 
+#  NERDTree
+git clone https://github.com/preservim/nerdtree
+
 # Colorschemes
 cp $curDir/colors/* ~/.vim/colors/
 
