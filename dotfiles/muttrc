@@ -15,8 +15,13 @@ source "~/.mutt/theme.sh|"
 macro index <S-a> ":set confirmappend=no\n<save-message>=[Gmail]/All Mail<enter>:set confirmappend=yes\n<sync-mailbox><enter>"
 
 # Quote Character
+set attribution = "On %d, %n wrote:"
 set indent_str = '> '
-bind editor '> ' quote-char
+set pipe_decode = yes
+unset implicit_autoview
+auto_view text/html
+alternative_order text/plain text/html
+set sig_dashes = no
 
 # Sidebar configuration
 set sidebar_visible
