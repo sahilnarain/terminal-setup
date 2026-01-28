@@ -94,7 +94,7 @@ then
   fi
   if [ `tmux ls | wc -l` -gt 1 ]
   then
-    tmux choose-session -t default
+    tmux choose-session -Zs -O name -t default
     tmux attach -t default
   else
     tmux attach -t default
