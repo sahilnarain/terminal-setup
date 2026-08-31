@@ -1,0 +1,112 @@
+# Dracula, for a dark 8-bit terminal.
+# Palette: xterm-256 / ANSI 256-colour
+#
+# Approximate mappings:
+#   background #282a36 -> 235
+#   current line #44475a -> 238
+#   foreground #f8f8f2 -> 255
+#   comment #6272a4 -> 61
+#
+#   cyan #8be9fd -> 117
+#   green #50fa7b -> 84
+#   orange #ffb86c -> 215
+#   pink #ff79c6 -> 212
+#   purple #bd93f9 -> 141
+#   red #ff5555 -> 203
+#   yellow #f1fa8c -> 228
+
+# Canvas.
+background: 235
+
+# Surfaces.
+surface_overlay: 238
+surface_help: 238
+surface_toast: 238
+surface_status_bar: 234
+surface_selected: 141
+surface_self_mention: 212
+surface_code: 234
+
+# Text.
+text: 255
+text_dim: 252
+text_muted: 146
+text_faint: 103
+text_subtle: 252
+text_on_surface: 255
+text_status_bar: 255
+text_on_selected: 234
+text_on_selected_muted: 235
+text_on_toast: 255
+text_mode_label: 234
+text_code: 255
+
+# Accents.
+accent: 141
+accent_on_surface: 141
+accent_status_bar: 141
+accent_insert: 84
+accent_mode_normal: 141
+accent_mode_insert: 84
+
+# Status and message state.
+status_error: 203
+status_warning: 215
+status_info: 117
+status_online: 84
+tick_sent: 146
+tick_outbox: 146
+tick_read: 117
+tick_failed: 203
+name_incoming: 84
+name_editing: 228
+indicator: 117
+unread_separator: 117
+waveform_played: 117
+reaction_chosen: 84
+unread_reaction: 212
+unread_mention: 141
+
+# Borders.
+border_pane_active: 84
+border_bubble_in: 238
+border_bubble_out: 61
+border_overlay: 61
+border_composer_focused: 84
+border_composer_flash: 203
+border_status_sep: 61
+
+# Message markup.
+markup_link: 117
+markup_ref: 212
+markup_self_mention_fg: 234
+
+# Highlights.
+highlight_accent: 215
+highlight_error: 203
+highlight_base_chat: 255
+highlight_base_bubble: 238
+overlay_dim: 61
+
+# Composer.
+composer_counter_dim: 146
+composer_glyph_idle: 103
+composer_glyph_ready: 141
+
+# Per-sender names.
+sender_palette:
+  - 203 # red
+  - 215 # orange
+  - 228 # yellow
+  - 84  # green
+  - 117 # cyan
+  - 141 # purple
+  - 212 # pink
+  - 183 # bright purple
+
+logo_gradient:
+  - {pos: 0.00, color: 238}
+  - {pos: 0.30, color: 61}
+  - {pos: 0.60, color: 141}
+  - {pos: 0.85, color: 212}
+  - {pos: 1.00, color: 255}
