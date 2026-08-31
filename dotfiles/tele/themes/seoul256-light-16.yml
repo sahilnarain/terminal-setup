@@ -1,0 +1,134 @@
+# Seoul256 Light, approximated to ANSI 16 colours.
+# After junegunn/seoul256.vim - background 253 (#dadada), foreground 239
+# (#4e4e4e), with the scheme's muted brick / forest / ochre / steel / plum /
+# teal accents.
+# Light theme: the canvas is light, so readable text is drawn dark on it.
+#
+#   ANSI 0  Black          #dadada   background (canvas is the light end)
+#   ANSI 1  Red            #9d4040   brick
+#   ANSI 2  Green          #3f703f   forest
+#   ANSI 3  Yellow         #875f00   ochre
+#   ANSI 4  Blue           #005f87   steel
+#   ANSI 5  Magenta        #7a4c7a   plum
+#   ANSI 6  Cyan           #3f7070   teal
+#   ANSI 7  White          #4e4e4e   fg (drawn dark on the light canvas)
+#   ANSI 8  Bright Black   #e8e8e8   surfaces / light fills
+#   ANSI 9  Bright Red     #9d4040
+#   ANSI 10 Bright Green   #87af87
+#   ANSI 11 Bright Yellow  #875f00
+#   ANSI 12 Bright Blue    #87afd7   light steel (status-bar accents)
+#   ANSI 13 Bright Magenta #7a4c7a
+#   ANSI 14 Bright Cyan    #3f7070
+#   ANSI 15 Bright White   #4e4e4e
+#
+# Seoul256 is deliberately low-contrast on its own muted accents; with only 16
+# colours the mid-greys and every accent hue collapse to the nearest slot. The
+# muted text tokens painted on the canvas take the readable dark fg slot.
+
+# Canvas. The field behind everything, wherever no panel covers it. Left unset
+# it is the terminal's own; set here to the scheme's own background, so the
+# panels above actually read as lifted off it rather than as whatever the
+# terminal happens to be. Setting it ends terminal transparency, and it requires
+# `text` below.
+background: "#dadada"
+
+# Surfaces. Panels are lighter than the background, not darker: a popup that
+# reads as lifted off the page beats one that reads as a hole in it, and the
+# extra headroom is what lets an accent on the panel stay legible.
+surface_overlay: "#e8e8e8"
+surface_help: "#e8e8e8"
+surface_toast: "#e8e8e8"
+surface_status_bar: "#4e4e4e"
+surface_selected: "#005f87"
+surface_self_mention: "#7a4c7a"
+surface_code: "#e8e8e8"
+
+# Text. `text` is the body - message text, chat titles, folder labels, search
+# rows - and is the largest area of colour on screen. Left unset it comes from
+# the terminal; set here to the scheme's own foreground.
+text: "#4e4e4e"
+text_dim: "#4e4e4e"
+text_muted: "#4e4e4e"
+text_faint: "#4e4e4e"
+text_subtle: "#4e4e4e"
+text_on_surface: "#4e4e4e"
+text_status_bar: "#dadada"
+text_on_selected: "#dadada"
+text_on_selected_muted: "#dadada"
+text_on_toast: "#4e4e4e"
+text_mode_label: "#dadada"
+text_code: "#4e4e4e"
+
+# Accents. The status bar is dark while the terminal is light, so its two
+# accents are light and the other two are dark - the one place in a light theme
+# where the accent cannot be a single value.
+accent: "#005f87"
+accent_on_surface: "#005f87"
+accent_status_bar: "#87afd7"
+accent_insert: "#87af87"
+accent_mode_normal: "#005f87"
+accent_mode_insert: "#3f703f"
+
+# Status and message state.
+status_error: "#9d4040"
+status_warning: "#875f00"
+status_info: "#005f87"
+status_online: "#3f703f"
+tick_sent: "#4e4e4e"
+tick_outbox: "#4e4e4e"
+tick_read: "#005f87"
+tick_failed: "#9d4040"
+name_incoming: "#3f703f"
+name_editing: "#875f00"
+indicator: "#3f7070"
+unread_separator: "#005f87"
+waveform_played: "#005f87"
+reaction_chosen: "#3f703f"
+unread_reaction: "#7a4c7a"
+unread_mention: "#005f87"
+
+# Borders.
+border_pane_active: "#3f703f"
+border_bubble_in: "#e8e8e8"
+border_bubble_out: "#005f87"
+border_overlay: "#e8e8e8"
+border_composer_focused: "#3f703f"
+border_composer_flash: "#9d4040"
+border_status_sep: "#4e4e4e"
+
+# Message markup.
+markup_link: "#005f87"
+markup_ref: "#7a4c7a"
+markup_self_mention_fg: "#dadada"
+
+# Highlights. The two base tones are what a highlight fades back to, so each is
+# what the thing normally looks like: chat-row text, and the incoming border.
+highlight_accent: "#875f00"
+highlight_error: "#9d4040"
+highlight_base_chat: "#4e4e4e"
+highlight_base_bubble: "#e8e8e8"
+overlay_dim: "#e8e8e8"
+
+# Composer.
+composer_counter_dim: "#4e4e4e"
+composer_glyph_idle: "#4e4e4e"
+composer_glyph_ready: "#005f87"
+
+# Per-sender names, walking the scheme's hues so adjacent senders differ in hue
+# rather than only in shade.
+sender_palette:
+  - "#9d4040" # brick
+  - "#3f703f" # forest
+  - "#005f87" # steel
+  - "#7a4c7a" # plum
+  - "#3f7070" # teal
+  - "#875f00" # ochre
+  - "#7a4c7a" # iris
+  - "#3f703f" # olive
+
+logo_gradient:
+  - {pos: 0.00, color: "#005f87"}
+  - {pos: 0.30, color: "#005f87"}
+  - {pos: 0.60, color: "#005f87"}
+  - {pos: 0.85, color: "#87afd7"}
+  - {pos: 1.00, color: "#87afd7"}

@@ -1,0 +1,135 @@
+# Tokyo Night (Day), approximated to ANSI 16 colours.
+# Palette: https://github.com/folke/tokyonight.nvim (day style)
+# Light theme: the canvas is light, so readable text is drawn dark on it.
+#
+#   ANSI 0  Black          #e1e2e7   bg (canvas is the light end)
+#   ANSI 1  Red            #c64343
+#   ANSI 2  Green          #587539
+#   ANSI 3  Yellow         #8c6c3e
+#   ANSI 4  Blue           #2e7de9
+#   ANSI 5  Magenta        #9854f1
+#   ANSI 6  Cyan           #007197
+#   ANSI 7  White          #3760bf   fg (blue, drawn dark on the light canvas)
+#   ANSI 8  Bright Black   #ebecf1   surfaces / light fills (status bar uses #c4c8da)
+#   ANSI 9  Bright Red     #b15c00   (orange)
+#   ANSI 10 Bright Green   #587539
+#   ANSI 11 Bright Yellow  #8c6c3e
+#   ANSI 12 Bright Blue    #2e7de9
+#   ANSI 13 Bright Magenta #7847bd
+#   ANSI 14 Bright Cyan    #188092   (cyan); teal indicator/sender uses #118c74
+#   ANSI 15 Bright White   #3760bf
+#
+# Day keeps its blue text (the one thing that makes it recognisable), so the
+# fg slot is blue rather than grey. Muted text tokens painted on the canvas and
+# the panel-grey surfaces collapse onto the nearest dark / light slot.
+
+# Canvas. The field behind everything, wherever no panel covers it. Left unset
+# it is the terminal's own; set here to bg, so the palette owns the whole screen
+# rather than only the parts it paints. Setting it ends terminal transparency,
+# and it requires `text` below.
+background: "#e1e2e7"
+
+# Surfaces. Panels are lighter than the canvas, not darker: a popup that reads as
+# lifted off the page beats one that reads as a hole in it. The status bar is the
+# exception - it takes bg_highlight and stays a shade below everything, which is
+# what makes it read as a floor.
+surface_overlay: "#ebecf1"
+surface_help: "#ebecf1"
+surface_toast: "#ebecf1"
+surface_status_bar: "#c4c8da"
+surface_selected: "#2e7de9"
+surface_self_mention: "#9854f1"
+surface_code: "#ebecf1"
+
+# Text. `text` is the body - message text, chat titles, folder labels, search
+# rows - and is the largest area of colour on screen. Left unset it comes from
+# the terminal; set here to fg, which in this scheme is a blue rather than a
+# grey and is most of what makes Day recognisable.
+text: "#3760bf"
+text_dim: "#3760bf"
+text_muted: "#3760bf"
+text_faint: "#3760bf"
+text_subtle: "#3760bf"
+text_on_surface: "#3760bf"
+text_status_bar: "#3760bf"
+text_on_selected: "#e1e2e7"
+text_on_selected_muted: "#e1e2e7"
+text_on_toast: "#3760bf"
+text_mode_label: "#e1e2e7"
+text_code: "#3760bf"
+
+# Accents. This theme keeps the status bar light, unlike most light themes, so
+# every accent sits on a light background and all of them are dark. The status
+# bar is still the odd one out: it is a shade darker than the canvas, which
+# leaves the scheme's blue at 2.4:1 on it, so that one accent steps to the
+# darker cyan instead.
+accent: "#2e7de9"
+accent_on_surface: "#2e7de9"
+accent_status_bar: "#007197"
+accent_insert: "#587539"
+accent_mode_normal: "#2e7de9"
+accent_mode_insert: "#587539"
+
+# Status and message state.
+status_error: "#c64343"
+status_warning: "#b15c00"
+status_info: "#007197"
+status_online: "#587539"
+tick_sent: "#3760bf"
+tick_outbox: "#3760bf"
+tick_read: "#007197"
+tick_failed: "#c64343"
+name_incoming: "#587539"
+name_editing: "#8c6c3e"
+indicator: "#118c74"
+unread_separator: "#007197"
+waveform_played: "#007197"
+reaction_chosen: "#587539"
+unread_reaction: "#9854f1"
+unread_mention: "#2e7de9"
+
+# Borders.
+border_pane_active: "#587539"
+border_bubble_in: "#ebecf1"
+border_bubble_out: "#2e7de9"
+border_overlay: "#ebecf1"
+border_composer_focused: "#587539"
+border_composer_flash: "#c64343"
+border_status_sep: "#3760bf"
+
+# Message markup.
+markup_link: "#188092"
+markup_ref: "#9854f1"
+markup_self_mention_fg: "#e1e2e7"
+
+# Highlights. The two base tones are what a highlight fades back to, so each is
+# what the thing normally looks like: chat-row text, and the incoming border.
+highlight_accent: "#b15c00"
+highlight_error: "#c64343"
+highlight_base_chat: "#3760bf"
+highlight_base_bubble: "#ebecf1"
+overlay_dim: "#ebecf1"
+
+# Composer.
+composer_counter_dim: "#3760bf"
+composer_glyph_idle: "#3760bf"
+composer_glyph_ready: "#2e7de9"
+
+# Per-sender names, walking the scheme's hues so adjacent senders differ in hue
+# rather than only in shade.
+sender_palette:
+  - "#c64343" # red
+  - "#b15c00" # orange
+  - "#8c6c3e" # yellow
+  - "#587539" # green
+  - "#118c74" # teal
+  - "#007197" # cyan
+  - "#2e7de9" # blue
+  - "#9854f1" # purple
+
+logo_gradient:
+  - {pos: 0.00, color: "#118c74"}
+  - {pos: 0.30, color: "#188092"}
+  - {pos: 0.60, color: "#3760bf"}
+  - {pos: 0.85, color: "#2e7de9"}
+  - {pos: 1.00, color: "#2e7de9"}

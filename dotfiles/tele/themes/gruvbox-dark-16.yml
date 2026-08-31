@@ -1,0 +1,131 @@
+# Gruvbox Dark, approximated to ANSI 16 colours.
+# Palette: https://github.com/morhetz/gruvbox
+#
+#   ANSI 0  Black          #282828   dark0 / bg
+#   ANSI 1  Red            #fb4934   bright red
+#   ANSI 2  Green          #b8bb26
+#   ANSI 3  Yellow         #fabd2f
+#   ANSI 4  Blue           #83a598   bright blue (faded blue below has no slot)
+#   ANSI 5  Magenta        #d3869b   bright purple
+#   ANSI 6  Cyan           #8ec07c   bright aqua
+#   ANSI 7  White          #ebdbb2   light1 / fg + muted text
+#   ANSI 8  Bright Black   #504945   dark2 / surfaces / borders
+#   ANSI 9  Bright Red     #fe8019   (bright orange)
+#   ANSI 10 Bright Green   #b8bb26
+#   ANSI 11 Bright Yellow  #fabd2f
+#   ANSI 12 Bright Blue    #83a598
+#   ANSI 13 Bright Magenta #d3869b
+#   ANSI 14 Bright Cyan    #8ec07c
+#   ANSI 15 Bright White   #ebdbb2
+#
+# The bright ramp is the set meant to be read on dark0, so those hues hold the
+# ANSI slots. The faded blues (#076678/#458588) and the mid greys have no ANSI
+# home: dark tones collapse to dark2/bright-black, and the muted text tokens
+# painted on the canvas take the readable light1 slot rather than go dark.
+
+# Canvas. The field behind everything, wherever no panel covers it. Left unset
+# it is the terminal's own; set here to dark0, so the palette owns the whole
+# screen rather than only the parts it paints. Setting it ends terminal
+# transparency, and it requires `text` below.
+background: "#282828"
+
+# Surfaces. Panels step up through the dark ramp; the status bar uses dark0_hard,
+# below the canvas, so it reads as a floor rather than a panel. The selected row
+# and its two text tones both collapse onto the bright blue, since ANSI 16 has
+# no dark faded blue for a fill.
+surface_overlay: "#504945"
+surface_help: "#504945"
+surface_toast: "#504945"
+surface_status_bar: "#282828"
+surface_selected: "#83a598"
+surface_self_mention: "#d3869b"
+surface_code: "#282828"
+
+# text. `text` is the body - message text, chat titles, folder labels, search
+# rows - and is the largest area of colour on screen. Left unset it comes from
+# the terminal; set here to light1, gruvbox's own foreground. The selected and
+# self-mention rows collapse onto light fills, so their text goes dark.
+text: "#ebdbb2"
+text_dim: "#ebdbb2"
+text_muted: "#ebdbb2"
+text_faint: "#ebdbb2"
+text_subtle: "#ebdbb2"
+text_on_surface: "#ebdbb2"
+text_status_bar: "#ebdbb2"
+text_on_selected: "#282828"
+text_on_selected_muted: "#282828"
+text_on_toast: "#ebdbb2"
+text_mode_label: "#282828"
+text_code: "#ebdbb2"
+
+# Accents. All three backgrounds here are dark, so all three are light.
+accent: "#83a598"
+accent_on_surface: "#83a598"
+accent_status_bar: "#83a598"
+accent_insert: "#b8bb26"
+accent_mode_normal: "#83a598"
+accent_mode_insert: "#b8bb26"
+
+# Status and message state.
+status_error: "#fb4934"
+status_warning: "#fe8019"
+status_info: "#83a598"
+status_online: "#b8bb26"
+tick_sent: "#ebdbb2"
+tick_outbox: "#ebdbb2"
+tick_read: "#83a598"
+tick_failed: "#fb4934"
+name_incoming: "#b8bb26"
+name_editing: "#fabd2f"
+indicator: "#8ec07c"
+unread_separator: "#83a598"
+waveform_played: "#83a598"
+reaction_chosen: "#b8bb26"
+unread_reaction: "#d3869b"
+unread_mention: "#83a598"
+
+# Borders.
+border_pane_active: "#b8bb26"
+border_bubble_in: "#504945"
+border_bubble_out: "#83a598"
+border_overlay: "#504945"
+border_composer_focused: "#b8bb26"
+border_composer_flash: "#fb4934"
+border_status_sep: "#504945"
+
+# Message markup.
+markup_link: "#8ec07c"
+markup_ref: "#d3869b"
+markup_self_mention_fg: "#282828"
+
+# Highlights. The two base tones are what a highlight fades back to, so each is
+# what the thing normally looks like: chat-row text, and the incoming border.
+highlight_accent: "#fe8019"
+highlight_error: "#fb4934"
+highlight_base_chat: "#ebdbb2"
+highlight_base_bubble: "#504945"
+overlay_dim: "#504945"
+
+# Composer.
+composer_counter_dim: "#ebdbb2"
+composer_glyph_idle: "#ebdbb2"
+composer_glyph_ready: "#83a598"
+
+# Per-sender names, walking the bright ramp so adjacent senders differ in hue
+# rather than only in shade.
+sender_palette:
+  - "#fb4934" # bright red
+  - "#fe8019" # bright orange
+  - "#fabd2f" # bright yellow
+  - "#b8bb26" # bright green
+  - "#8ec07c" # bright aqua
+  - "#83a598" # bright blue
+  - "#d3869b" # bright purple
+  - "#ebdbb2" # light1
+
+logo_gradient:
+  - {pos: 0.00, color: "#504945"}
+  - {pos: 0.30, color: "#504945"}
+  - {pos: 0.60, color: "#83a598"}
+  - {pos: 0.85, color: "#83a598"}
+  - {pos: 1.00, color: "#ebdbb2"}
