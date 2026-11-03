@@ -84,7 +84,7 @@ cd ..
 nano rootfs_extract/etc/inittab
 
 # 4a. Repack
-find rootfs_extract | sort | cpio -o -H newc --quiet > rootfs_modified.cpio
+find rootfs_extract | sort | cpio -o -H newc --owner=0:0 --quiet > rootfs_modified.cpio
 
 # 4b. Recompress
 zstd -19 rootfs_modified.cpio -o rootfs-piCore64-17_0.zst
