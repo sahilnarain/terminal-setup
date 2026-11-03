@@ -1,4 +1,4 @@
-# Default account
+# Accounts: the last one sourced is the one mutt starts in (currently Xane)
 source ~/.mutt/gmail.conf
 source ~/.mutt/xane.conf
 
@@ -11,17 +11,52 @@ set editor = "vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 # Colorscheme
 source "~/.mutt/theme.sh|"
 
-# Keybindings
-macro index <S-a> ":set confirmappend=no\n<save-message>=[Gmail]/All Mail<enter>:set confirmappend=yes\n<sync-mailbox><enter>"
+# General behaviour
+set ssl_force_tls = yes          # never fall back to plaintext IMAP/SMTP
+set send_charset = "utf-8"
+set copy = no                    # Gmail's SMTP already files sent mail in [Gmail]/Sent Mail
+set confirmappend = no           # no "Append to All Mail?" prompt
+set delete = yes                 # sync/archive without "Purge deleted messages?" prompt
 
-# Quote Character
-set attribution = "On %d, %n wrote:"
-set indent_str = '> '
+# ---------------------------------------------------------------------------
+# Reading & quoting
+# ---------------------------------------------------------------------------
+set include = yes
+set implicit_autoview
+set text_flowed = no
+set indent_string = "> "
+# Gmail-style: "On Tue, Nov 3, 2026 at 10:59 AM Jane Doe <jane@x.com> wrote:"
+# Leading \n\n: vim opens on an empty line 1 to type on, with a blank line before the attribution
+set attribution = "\n\nOn %{%a, %b %-d, %Y at %-I:%M %p} %n <%a> wrote:"
 set pipe_decode = yes
-unset implicit_autoview
 auto_view text/html
 alternative_order text/plain text/html
 set sig_dashes = no
+
+# Forward inline (Gmail style) instead of as a .eml attachment; attachments still carried
+set mime_forward = no
+set forward_decode = yes
+set forward_attachments = yes
+set forward_format = "Fwd: %s"
+set forward_attribution_intro = "---------- Forwarded message ---------"
+set forward_attribution_trailer = ""
+
+# ---------------------------------------------------------------------------
+# Sending: every mail goes out as plain text + generated HTML automatically.
+# In compose:  y = send without signature,  S = send with signature
+# (my_filter_nosig / my_filter_sig are set per account in gmail.conf / xane.conf)
+# Replies quote the original's HTML when it has one (see r/g/L macros below).
+# Preview the HTML in compose with v (rendered) or Esc-v (source).
+# ---------------------------------------------------------------------------
+set send_multipart_alternative = yes
+send-hook . 'set send_multipart_alternative_filter=$my_filter_nosig'
+# Replies: save the original's HTML first so the HTML version can quote it with
+# its formatting intact (falls back to the text quote if there is no HTML part)
+macro index,pager r "<enter-command>set pipe_decode=no wait_key=no<enter><pipe-message>~/.mutt/save-original.py<enter><enter-command>set pipe_decode=yes wait_key=yes<enter><reply>" "Reply"
+macro index,pager g "<enter-command>set pipe_decode=no wait_key=no<enter><pipe-message>~/.mutt/save-original.py<enter><enter-command>set pipe_decode=yes wait_key=yes<enter><group-reply>" "Reply to all"
+macro index,pager L "<enter-command>set pipe_decode=no wait_key=no<enter><pipe-message>~/.mutt/save-original.py<enter><enter-command>set pipe_decode=yes wait_key=yes<enter><list-reply>" "Reply to list"
+# single quotes: $my_filter_sig is read when S is pressed, so it follows sg/sx
+macro compose S '<enter-command>set send_multipart_alternative_filter=$my_filter_sig<enter><send-message>' "Send with signature"
 
 # Sidebar configuration
 set sidebar_visible
@@ -30,16 +65,14 @@ set mail_check_stats
 set sidebar_new_mail_only
 sidebar_whitelist "+INBOX" "+[Gmail]/Sent Mail" "+[Gmail]/Drafts" "+[Gmail]/All Mail" "+[Gmail]/Spam" "+[Gmail]/Trash"
 
-bind index,pager \CP sidebar-prev       # Ctrl-Shift-P - Previous Mailbox
-bind index,pager \CN sidebar-next       # Ctrl-Shift-N - Next Mailbox
-bind index,pager \CO sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbox
+bind index,pager \CP sidebar-prev       # Ctrl-P - Previous Mailbox
+bind index,pager \CN sidebar-next       # Ctrl-N - Next Mailbox
+bind index,pager \CO sidebar-open       # Ctrl-O - Open Highlighted Mailbox
 
-# Archive Shortcut
-macro index aa "<save-message>=[Gmail]/All%20Mail<enter><enter><sync-mailbox><enter>" "Archive message to [Gmail]/All Mail"
+# Archive Shortcut (self-contained: does not depend on prompts being on/off)
+macro index,pager aa "<enter-command>set confirmappend=no delete=yes<enter><save-message>=[Gmail]/All Mail<enter><sync-mailbox>" "Archive message to [Gmail]/All Mail"
+macro index A "<enter-command>set confirmappend=no delete=yes<enter><save-message>=[Gmail]/All Mail<enter><sync-mailbox>" "Archive message to [Gmail]/All Mail"
 
 # Switch accounts
 macro index sg "<sync-mailbox><enter-command>source ~/.mutt/gmail.conf<enter><change-folder>!<enter>" "Switched to Gmail"
 macro index sx "<sync-mailbox><enter-command>source ~/.mutt/xane.conf<enter><change-folder>!<enter>" "Switched to Xane"
-
-set mime_forward=yes
-set forward_format="Fw: %s"
