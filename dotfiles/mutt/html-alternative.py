@@ -10,7 +10,7 @@ Mutt expects.
   a normal collapsible trail instead of a wall of ">" characters.
 - --signature FILE inserts an HTML signature after your own text and
   before the quoted trail (Gmail style), or at the end if you bottom-post.
-- Light formatting: blank-line paragraphs, "- " / "1. " lists,
+- Light formatting: blank-line paragraphs, "- " bullet lists (numbered lines are kept as typed),
   **bold**, `code`, and auto-linked URLs / email addresses.
 """
 import argparse
@@ -24,8 +24,6 @@ import time
 ATTRIB_RE = re.compile(r"^On .+ wrote:\s*$")
 QUOTE_RE = re.compile(r"^((?:>[ \t]?)+)(.*)$")
 UL_RE = re.compile(r"^\s*[-*]\s+(.*)$")
-OL_RE = re.compile(r"^\s*(?:\d+[.)])\s+(.*)$")
-OL_NUM_RE = re.compile(r"^\s*(\d+)[.)]\s")
 LINK_RE = re.compile(
     r"(?P<url>\b(?:https?://|www\.)[^\s<>\"']+[^\s<>\"'.,;:!?)\]])"
     r"|(?P<mail>\b[\w.+-]+@[\w-]+(?:\.[\w-]+)+\b)"
@@ -68,20 +66,15 @@ def render_text(lines):
             out.append("<div><br></div>")
             i += 1
             continue
-        for rx, tag in ((UL_RE, "ul"), (OL_RE, "ol")):
+        # Numbered lines ("1. ", "2.1 ") are left as typed, not turned into an
+        # <ol>: the numbers stay exactly as written and get no extra indent
+        for rx, tag in ((UL_RE, "ul"),):
             if rx.match(line):
                 items = []
                 while i < len(lines) and rx.match(lines[i]):
                     items.append("<li>%s</li>" % inline(rx.match(lines[i]).group(1)))
                     i += 1
-                # Start at the number actually typed, so "2." after a blank
-                # line stays 2 instead of restarting at 1
-                attrs = ""
-                if tag == "ol":
-                    n = int(OL_NUM_RE.match(line).group(1))
-                    if n != 1:
-                        attrs = ' start="%d"' % n
-                out.append("<%s%s>%s</%s>" % (tag, attrs, "".join(items), tag))
+                out.append("<%s>%s</%s>" % (tag, "".join(items), tag))
                 break
         else:
             out.append("<div>%s</div>" % inline(line))
