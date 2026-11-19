@@ -2,7 +2,7 @@
 
 if [[ $TERM == 'linux' ]]
 then
-  echo "source ~/ai.muttrc"
+  echo "source ~/.mutt/colorschemes/snare.muttrc"
 else
   echo "source ~/.mutt/colorschemes/dracula.muttrc"
 fi

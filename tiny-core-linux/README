@@ -81,16 +81,11 @@ cpio -id --quiet < ../rootfs.cpio
 cd ..
 
 # 3. Edit
-nano rootfs_extract/etc/inittab
+Copy tty font
+nano rootfs_extract/etc/inittab # Edit TTYs and run loadfont on sysinit
 
-# 4a. Repack
-find rootfs_extract | sort | cpio -o -H newc --owner=0:0 --quiet > rootfs_modified.cpio
+# 4. Repack
+find rootfs_extract | sort | cpio -o -H newc --owner=0:0 | zstd -19 -c  > ../rootfs-piCore64-17.0.zstd
 
-# 4b. Recompress
-zstd -19 rootfs_modified.cpio -o rootfs-piCore64-17_0.zst
-
-# 5. Verify
-zstd -d rootfs-piCore64-17_0.zst -o /tmp/verify.cpio && wc -c /tmp/verify.cpio rootfs_modified.cpio
-
-# 6. Deploy
-cp rootfs-piCore64-17_0.zst /media/boot/rootfs-piCore64-17_0.zst && sync
+Copy to original path after verification. Verification can be done by
+zstd -d ../rootfs-piCore64-17.0.zstd | sudo cpio -itv | head -n 10

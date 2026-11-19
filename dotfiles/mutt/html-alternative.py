@@ -24,7 +24,8 @@ import time
 ATTRIB_RE = re.compile(r"^On .+ wrote:\s*$")
 QUOTE_RE = re.compile(r"^((?:>[ \t]?)+)(.*)$")
 UL_RE = re.compile(r"^\s*[-*]\s+(.*)$")
-OL_RE = re.compile(r"^\s*\d+[.)]\s+(.*)$")
+OL_RE = re.compile(r"^\s*(?:\d+[.)])\s+(.*)$")
+OL_NUM_RE = re.compile(r"^\s*(\d+)[.)]\s")
 LINK_RE = re.compile(
     r"(?P<url>\b(?:https?://|www\.)[^\s<>\"']+[^\s<>\"'.,;:!?)\]])"
     r"|(?P<mail>\b[\w.+-]+@[\w-]+(?:\.[\w-]+)+\b)"
@@ -73,7 +74,14 @@ def render_text(lines):
                 while i < len(lines) and rx.match(lines[i]):
                     items.append("<li>%s</li>" % inline(rx.match(lines[i]).group(1)))
                     i += 1
-                out.append("<%s>%s</%s>" % (tag, "".join(items), tag))
+                # Start at the number actually typed, so "2." after a blank
+                # line stays 2 instead of restarting at 1
+                attrs = ""
+                if tag == "ol":
+                    n = int(OL_NUM_RE.match(line).group(1))
+                    if n != 1:
+                        attrs = ' start="%d"' % n
+                out.append("<%s%s>%s</%s>" % (tag, attrs, "".join(items), tag))
                 break
         else:
             out.append("<div>%s</div>" % inline(line))
